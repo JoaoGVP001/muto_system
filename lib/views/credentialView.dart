@@ -105,7 +105,43 @@ class _CredentialviewState extends State<Credentialview> {
                 }
                 catch (e) {
                   showSnack('Erro inesperado: $e', false);
-                }}, child: Text("Administrador Login"),)
+                }}, child: Text("Administrador Login"),),
+                Card(
+                    elevation: 4, // profundidade
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    margin: EdgeInsets.all(16), // espaço externo
+                    child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: Text('Conteúdo do card'),
+                    ),
+                  ),
+                  Checkbox(
+                    value: true, // estado atual
+                    onChanged: (bool? value) {}, // ação ao mudar
+                    activeColor: Colors.blue, // cor ativa
+                    checkColor: Colors.white, // cor do check
+                  ),
+                  Form(
+                    key: GlobalKey<FormState>(), // chave do formulário
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Senha'),
+                          obscureText: true,
+                          validator: (value) => value!.length < 6 ? 'Mínimo 6 caracteres' : null,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            // validação aqui
+                          },
+                          child: Text('Enviar'),
+                        ),
+                      ],
+                    ),
+                  )
+
+
+
 
           ],
         ),
